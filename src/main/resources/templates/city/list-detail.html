@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/city/city">Create new customer</a>
+<h1></h1>
+<table border="1">
+    <tr>
+        <th>City</th>
+        <th>Nation</th>
+        <th>Acreage</th>
+        <th>Population</th>
+        <th>GDP</th>
+        <th>Description</th>
+    </tr>
+    <th:block th:each="city: ${city}">
+        <tr>
+            <td th:text="${city.ID}"></td>
+            <td th:text="${city.nameCity}"></td>
+            <td th:text="${city.acreage}"></td>
+            <td th:text="${city.population}"></td>
+            <td th:text="${city.GDP}"></td>
+            <td th:text="${city.description}"></td>
+            <td><a th:href="@{/city/edit/__${city.ID}__ }">Edit</a></td>
+            <td><a th:href="@{/city/delete/__${city.ID}__ }">Delete</a></td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>
